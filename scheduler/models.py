@@ -20,3 +20,6 @@ class Alarm(models.Model):
     aid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     alarm_dt = models.DateTimeField()
     timestamp = models.DateTimeField(default=timezone.localtime)
+
+    def __str__(self):
+        return "[%s]" % self.alarm_dt.astimezone().strftime("%Y년 %m월 %d일 %H시 %M분")
